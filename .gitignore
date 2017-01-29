@@ -1,0 +1,7 @@
+dist/
+*.rdb
+genderComputerWorker/
+log/
+node_modules/
+typings/
+**/.idea

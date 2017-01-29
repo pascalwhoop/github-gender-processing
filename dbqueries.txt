@@ -1,0 +1,26 @@
+#total amount of PRs processed
+db.results.count()
+245830
+
+#count all results that were gendered
+db.results.find({$or: [{genderFromLogin: {$in: ['male', 'female', 'unisex']}}, {genderFromName: {$in: ['male', 'female', 'unisex']}}, {genderFromEmail: {$in: ['male', 'female', 'unisex']}}]}).count()
+> 175517
+
+#count all identified women 
+db.results.find({$or: [{genderFromLogin: 'female'}, {genderFromName: 'female'}, {genderFromEmail: 'female'}]}).count()
+
+db.results.find({genderFromName: {$in: ['male', 'female', 'unisex']}}).count()
+
+db.results.find({genderFromName: 'female'}).count()
+
+# share of pull requests that were created by a user that has a full name 
+db.results.find({name: {$ne: null}}).count()
+182329
+
+#share of all users that have a name added
+> db.users.find({name: {$ne: null}}).count()
+28530
+> db.users.count()
+43130
+> 0.661488523
+
